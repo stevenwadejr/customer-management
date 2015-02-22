@@ -48,7 +48,7 @@ class CustomerRepository
             ->where('customers.id', '<>', 'dup.id')
             ->groupBy('customers.first_name')
             ->groupBy('customers.last_name')
-            ->orderBy('id', 'desc');
+            ->orderBy('customers.id', 'desc');
         return $query->get();
     }
 
