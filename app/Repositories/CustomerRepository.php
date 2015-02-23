@@ -36,6 +36,7 @@ class CustomerRepository
                 \DB::raw('
                     (SELECT id, first_name, last_name, count(*) as num_duplicates
                      FROM customers
+                     WHERE deleted_at IS NULL
                      GROUP BY first_name, last_name
                      HAVING num_duplicates > 1
                     ) AS dup
